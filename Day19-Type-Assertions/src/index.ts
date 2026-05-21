@@ -90,7 +90,49 @@
 // console.log(typeof x);
 
 // DOM
-let btn = document.getElementById("btn") as HTMLButtonElement; //type
-let h1 = document.querySelector("h1") as HTMLHeadingElement;
-console.log(btn);
-console.log(h1);
+// let btn = document.getElementById("btn") as HTMLButtonElement; //type
+// let h1 = document.querySelector("h1") as HTMLHeadingElement;
+// console.log(btn);
+// console.log(h1);
+
+// interface MockButton {
+//   disabled: boolean;
+//   click: () => void;
+//   textContent: string;
+// }
+
+// let btn: unknown = {
+//   disabled: false,
+//   click: () => console.log("Clicked"),
+//   textContent: "Submit",
+// };
+// let Button = btn as MockButton;
+// let x = document.getElementById("btn") as HTMLButtonElement;
+
+//! Array of objects with type assertions
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  isStock: boolean;
+}
+
+let productsData: unknown = [
+  {
+    id: 1,
+    title: "Laptop",
+    price: 50000,
+    isStock: true,
+  },
+  {
+    id: 2,
+    title: "Mobile",
+    price: 50000,
+    isStock: false,
+  },
+];
+
+let products = productsData as Product[];
+console.log(products);
+
+let colors = ["red", "green", "blue"] as const; // It is read only
